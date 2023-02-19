@@ -1,124 +1,111 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://bp4p5ghrvhb6a"]
 
-[ext_resource path="res://data/sprites/worker.png" type="Texture" id=1]
-[ext_resource path="res://data/scenes/Sprite.gd" type="Script" id=3]
-[ext_resource path="res://data/scenes/Game.gd" type="Script" id=4]
-[ext_resource path="res://data/scenes/3DTest.tscn" type="PackedScene" id=5]
+[ext_resource type="Texture2D" uid="uid://6it5ot6ffp7s" path="res://data/sprites/worker.png" id="1"]
+[ext_resource type="FontFile" uid="uid://bfh2wdcjtsmf2" path="res://data/fonts/FFFFORWA.TTF" id="2_7yl38"]
+[ext_resource type="Script" path="res://data/scenes/Sprite.gd" id="3"]
+[ext_resource type="Script" path="res://data/scenes/Game.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://bqwxjnvvkrvjv" path="res://data/scenes/3DTest.tscn" id="5"]
 
-[sub_resource type="DynamicFontData" id=1]
-antialiased = false
-font_path = "res://data/fonts/FFFFORWA.TTF"
+[sub_resource type="Theme" id="3"]
+default_font = ExtResource("2_7yl38")
+default_font_size = 8
 
-[sub_resource type="DynamicFont" id=2]
-size = 8
-font_data = SubResource( 1 )
-
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "New Anim"
 length = 4.0
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect2:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0.1, 3.9),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.0627451, 0, 0, 1 ), Color( 0.996078, 0.203922, 0.203922, 0 ) ]
+"values": [Color(0.0627451, 0, 0, 1), Color(0.996078, 0.203922, 0.203922, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xp1a"]
+_data = {
+"New Anim": SubResource("4")
 }
 
 [node name="Node" type="Node"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="UI" type="Control" parent="."]
-margin_right = 84.0
-margin_bottom = 48.0
-theme = SubResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 3
+anchors_preset = 0
+offset_right = 84.0
+offset_bottom = 48.0
+theme = SubResource("3")
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect2" type="ColorRect" parent="UI"]
-modulate = Color( 0.529412, 0.101961, 0.101961, 0.5 )
+modulate = Color(0.0627451, 0, 0, 1)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 27.0
-margin_top = 14.0
-margin_right = -40.0
-margin_bottom = -18.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 27.0
+offset_top = 14.0
+offset_right = -40.0
+offset_bottom = -18.0
 
 [node name="Label" type="Label" parent="UI"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 2.11058
-margin_top = 2.24362
-margin_right = 42.1106
-margin_bottom = 16.2436
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 64.0
+offset_bottom = 27.0
 text = "NOKIA"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label2" type="Label" parent="UI"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 17.1106
-margin_top = 34.2436
-margin_right = 83.1106
-margin_bottom = 48.2436
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 17.1106
+offset_top = 34.2436
+offset_right = 83.1106
+offset_bottom = 48.2436
 text = "[space] jump"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
-modulate = Color( 0, 0, 0, 1 )
-margin_top = 4.0
-margin_right = 60.0
-margin_bottom = 28.0
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 31.0
 bbcode_enabled = true
-bbcode_text = "
- [wave amp=30 freq=5]3310[/wave]"
 text = "
- 3310"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+ [wave amp=30 freq=5]3310[/wave]"
 
-[node name="Sprite" type="Sprite" parent="UI"]
-position = Vector2( 8, 37 )
-texture = ExtResource( 1 )
-script = ExtResource( 3 )
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(8, 37)
+texture = ExtResource("1")
+script = ExtResource("3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
-"anims/New Anim" = SubResource( 4 )
-
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_right = 84.0
-margin_bottom = 48.0
-__meta__ = {
-"_edit_use_anchors_": false
+libraries = {
+"": SubResource("AnimationLibrary_1xp1a")
 }
 
-[node name="Viewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 84, 48 )
-own_world = true
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 84.0
+offset_bottom = 48.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 3
+canvas_item_default_texture_filter = 0
+size = Vector2i(84, 48)
+size_2d_override = Vector2i(0, 48)
+render_target_update_mode = 4
 
-[node name="Spatial" parent="ViewportContainer/Viewport" instance=ExtResource( 5 )]
+[node name="Node3D" parent="SubViewportContainer/SubViewport" instance=ExtResource("5")]

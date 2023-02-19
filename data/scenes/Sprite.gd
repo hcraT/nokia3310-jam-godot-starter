@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 
 var sfx:AudioStream = preload("res://data/sfx/sfx01.wav")
